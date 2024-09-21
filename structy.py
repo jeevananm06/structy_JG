@@ -4,7 +4,12 @@ from math import sqrt, floor
 
 
 def max_value(nums):
-    return max(nums)
+    mx = float('-inf')
+    for i in nums:
+        if i > mx:
+            mx = i
+
+    return mx
 
 
 ''' Find given number is prime or not '''
