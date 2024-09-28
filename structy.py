@@ -24,3 +24,21 @@ def is_prime(n):
             return False
 
     return True
+
+
+''' Find duplicate in list '''
+
+
+def contains_dupe(items):
+    seen = set()
+    for item in items:
+        if item not in seen:
+            seen.add(item)
+        else:
+            print(item)
+            return True
+
+
+if __name__ == "__main__":
+    my_list = [1, 2, 3, 2, 4, 5, 3, 6]
+    contains_dupe(my_list)
