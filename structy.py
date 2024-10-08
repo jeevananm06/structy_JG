@@ -24,3 +24,20 @@ def is_prime(n):
             return False
 
     return True
+
+def anagrams(s1, s2):
+    return (chr_count(s1) == chr_count(s2))
+
+
+def chr_count(s):
+    char_count = {}
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+    return char_count
+
+
+print(anagrams('paper', 'reapa'))
