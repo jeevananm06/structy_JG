@@ -25,6 +25,7 @@ def is_prime(n):
 
     return True
 
+
 def anagrams(s1, s2):
     return (chr_count(s1) == chr_count(s2))
 
@@ -40,4 +41,18 @@ def chr_count(s):
     return char_count
 
 
-print(anagrams('paper', 'reapa'))
+# print(anagrams('paper', 'reapa'))
+
+
+
+''' Find frequent used chars'''
+def most_frequent_char(s):
+    mx = 0
+    for k, v in chr_count(s).items():
+        if mx < v:
+            mx = v
+            key = k
+    return key
+
+
+print(most_frequent_char('bookeeper'))
