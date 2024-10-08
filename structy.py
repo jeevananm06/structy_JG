@@ -44,8 +44,9 @@ def chr_count(s):
 # print(anagrams('paper', 'reapa'))
 
 
-
 ''' Find frequent used chars'''
+
+
 def most_frequent_char(s):
     mx = 0
     for k, v in chr_count(s).items():
