@@ -56,4 +56,14 @@ def most_frequent_char(s):
     return key
 
 
-print(most_frequent_char('bookeeper'))
+def pair_sum(numbers, target_sum):
+    for i in numbers:
+        num1 = numbers[:]
+        num1.remove(i)
+        for j in num1:
+            if i + j == target_sum:
+                index = (numbers.index(i), numbers.index(j))
+    print(index)
+
+
+print(pair_sum([9,9], 18))
