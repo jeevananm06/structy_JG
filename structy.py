@@ -57,13 +57,15 @@ def most_frequent_char(s):
 
 
 def pair_sum(numbers, target_sum):
-    for i in numbers:
-        num1 = numbers[:]
-        num1.remove(i)
-        for j in num1:
-            if i + j == target_sum:
-                index = (numbers.index(i), numbers.index(j))
-    print(index)
+    previous_numbers = {}
+
+    for index, num in enumerate(numbers):
+        complement = target_sum - num
+
+        if complement in previous_numbers:
+            return (index, previous_numbers[complement])
+
+        previous_numbers[num] = index
 
 
-print(pair_sum([9,9], 18))
+print(pair_sum([3, 2, 5, 4, 1], 8))
