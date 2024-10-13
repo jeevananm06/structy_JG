@@ -26,19 +26,46 @@ def is_prime(n):
     return True
 
 
-''' Find duplicate in list '''
+def anagrams(s1, s2):
+    return (chr_count(s1) == chr_count(s2))
 
 
-def contains_dupe(items):
-    seen = set()
-    for item in items:
-        if item not in seen:
-            seen.add(item)
+def chr_count(s):
+    char_count = {}
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
         else:
-            print(item)
-            return True
+            char_count[char] = 1
+
+    return char_count
 
 
-if __name__ == "__main__":
-    my_list = [1, 2, 3, 2, 4, 5, 3, 6]
-    contains_dupe(my_list)
+# print(anagrams('paper', 'reapa'))
+
+
+''' Find frequent used chars'''
+
+
+def most_frequent_char(s):
+    mx = 0
+    for k, v in chr_count(s).items():
+        if mx < v:
+            mx = v
+            key = k
+    return key
+
+
+def pair_sum(numbers, target_sum):
+    previous_numbers = {}
+
+    for index, num in enumerate(numbers):
+        complement = target_sum - num
+
+        if complement in previous_numbers:
+            return (index, previous_numbers[complement])
+
+        previous_numbers[num] = index
+
+
+print(pair_sum([3, 2, 5, 4, 1], 8))
