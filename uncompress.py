@@ -1,7 +1,7 @@
 def uncompress(s):
     result = []
     i = 0
-    for i in range(0, len(s)):
+    while i <len(s):
         num = 0
         # Extract the number
         while s[i].isdigit():
@@ -33,4 +33,4 @@ def uncompress1(s):
     return ''.join(result)
 
 
-print(uncompress1('112c3a1t'))
+print(uncompress('3n12e2z'))
