@@ -16,6 +16,8 @@ def local_maximun(s):
     return k
 
 
+
+
 def find_local_maxima(lst):
     local_maxima = []
     for i in range(1, len(lst) - 1):
