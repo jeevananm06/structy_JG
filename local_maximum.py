@@ -1,18 +1,17 @@
 def local_maximun(s):
     k = {}
-    max = s[0]
+    mx = s[0]
     length = len(s)
     for i, val in enumerate(s):
-        if max > val:
-
+        if mx > val and s[i - 1] != mx:
             k[s[i - 1]] = i - 1
-            max = val
+            mx = val
         else:
-            if i + 1 == length and s[i-1] != val:
+            if i + 1 == length and s[length-1] != val:
                 k[s[i]] = i
-            if i + 1 == length and max <= val:
+            if i + 1 == length and (list(k.items())[-1])[0] <= val:
                 k[s[i]] = i
-            max = val
+            mx = val
 
     return k
 
@@ -30,3 +29,6 @@ print(local_maximun([5, 3, 1, 2, 4, 2, 6,2,2]))
 # 1, 3, 1, 2, 4, 2, 6, 6
 # 1, 1, 2, 3, 4, 2, 2
 # 1, 3, 1, 2, 4, 2, 6, 9, 3,3
+# original_string = "example"
+# bracketed_string = f"({original_string})"
+# print(bracketed_string)  # Output: [example]
