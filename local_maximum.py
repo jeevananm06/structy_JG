@@ -1,32 +1,31 @@
-def local_maximun(s):
-    k = {}
-    mx = s[0]
-    length = len(s)
-    for i, val in enumerate(s):
-        if mx > val and s[i - 1] != mx:
-            k[s[i - 1]] = i - 1
-            mx = val
-        else:
-            if i + 1 == length and s[length-1] != val:
-                k[s[i]] = i
-            if i + 1 == length and (list(k.items())[-1])[0] <= val:
-                k[s[i]] = i
-            mx = val
+def find_local_maxima(data):
+    mxim = []
+    n = len(data)
 
-    return k
+    if n == 1:
+        return [0]
 
+    if n >= 2:
+        if data[0] > data[1]:
+            mxim.append(0)
+        if data[n - 1] > data[n - 2]:
+            mxim.append(n - 1)
 
+    for i in range(1, n - 1):
+        if data[i] > data[i - 1] and data[i] >= data[i + 1]:
+            mxim.append(i)
 
-
-def find_local_maxima(lst):
-    local_maxima = []
-    for i in range(1, len(lst) - 1):
-        if lst[i] > lst[i - 1] and lst[i] > lst[i + 1]:
-            local_maxima.append(lst[i])
-    return local_maxima
+    return mxim
 
 
-print(local_maximun([5, 3, 1, 2, 4, 2, 6,2,2]))
+data = [1,5, 3, 1, 2, 4, 2, 6, 2, 1]
+maxima = find_local_maxima(data)
+
+print("Local maxima positions:", maxima)
+
+print("Local maximas:", [data[i] for i in maxima])
+
+# print(local_maximun([5, 3, 1, 2, 4, 2, 6,2,2]))
 # print(find_local_maxima([1, 3, 1, 2, 4, 2, 6, 9]))
 # 1, 3, 1, 2, 4, 2, 6, 6
 # 1, 1, 2, 3, 4, 2, 2
